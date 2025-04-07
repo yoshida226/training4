@@ -24,5 +24,13 @@ public class ShopService {
 	public Shop selectShopById(Long id) {
 		return shopMapper.selectShopById(id);
 	}
+	
+	public void updateShop(Shop shop) {
+		shopMapper.updateShop(shop);
+	}
+	
+	public void insertShop(Shop shop) {
+		shopMapper.insertShop(shop);
+	}
 
 }

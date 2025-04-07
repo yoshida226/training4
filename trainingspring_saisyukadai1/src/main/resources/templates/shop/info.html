@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <!--http://localhost:8080/shop/list-->
-<!-- Bootstrap CSS -->
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link href="/css/info.css" rel="stylesheet" type="text/css" media="all">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="/css/info.css" rel="stylesheet" type="text/css" media="all">
 <title>お店詳細</title>
 </head>
 <body>
-  <div></div>
-  <div class="container">
-	<h1 class="fs-5">お店詳細</h1>
-	<div th:object="${shopInfo}">
-	  <span class="fw-bolder">名前:</span>
-      <span th:text="*{name}"></span><br>
-	  
-	  <span class="fw-bolder">種別:</span>
-	  <span th:text="*{type}"></span><br>
-	  
-	  <spanp class="fw-bolder">電話番号:</span>
-	  <span th:text="*{phone}"></span><br>
-
-      <span class="fw-bolder">売上:</span>
-	  <span th:text="${#numbers.formatInteger(shopInfo.sales, 3, 'COMMA')}"></span><br>
-	  
-	  <span class="fw-bolder">登録日:</spanp>
-	  <span th:text="${#dates.format(shopInfo.createdDate, 'yyyy-MM-dd')}"></span>
+	<div class="container">
+		<h1 class="fs-5">お店詳細</h1>
+		<div th:object="${shopInfo}">
+			<span class="fw-bolder">名前:</span>
+			<span th:text="*{name}"></span><br>
+			
+			<span class="fw-bolder">種別:</span>
+			<span th:text="*{type}"></span><br>
+			
+			<spanp class="fw-bolder">電話番号:</span>
+			<span th:text="*{phone}"></span><br>
+			
+			<span class="fw-bolder">売上:</span>
+			<span th:text="${#numbers.formatInteger(shopInfo.sales, 3, 'COMMA')}"></span><br>
+			
+			<span class="fw-bolder">登録日:</spanp>
+			<span th:text="${#dates.format(shopInfo.createdDate, 'yyyy-MM-dd')}"></span>
+		</div>
+		<div class="container margin">
+			<a th:href="@{/shop/{id}/edit(id=*{id})}" class="btn btn-primary">編集</a>
+			<a href="/shop/list" class="btn btn-primary">戻る</a>
+		</div>
 	</div>
-  <div class="container margin">
-    <a th:href="@{/shop/{id}/edit(id=*{id})}" class="btn btn-primary">編集</a>
-    <a href="/shop/list" class="btn btn-primary">戻る</a><br>
-  </div>
-  </div>
 </body>
 </html>

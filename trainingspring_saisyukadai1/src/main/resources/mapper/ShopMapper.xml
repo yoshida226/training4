@@ -12,13 +12,17 @@
         SELECT * FROM shop WHERE id = #{id}
     </select>
     
-<!--    <insert id="insertUser" parameterType="com.example.model.User">-->
-<!--        INSERT INTO users (name, email) VALUES (#{name}, #{email})-->
-<!--    </insert>-->
+    <update id="updateShop" parameterType="com.example.demo.entity.Shop">
+        UPDATE shop SET name = #{name}, type = #{type}, phone = #{phone}, sales = #{sales} WHERE id = #{id}
+    </update>
     
-<!--    <update id="updateUser" parameterType="com.example.model.User">-->
-<!--        UPDATE users SET name = #{name}, email = #{email} WHERE id = #{id}-->
-<!--    </update>-->
+    <insert id="insertShop" parameterType="com.example.demo.entity.Shop">
+    	SET @max_id = (SELECT COALESCE(MAX(id)+1, 1) FROM shop);
+        INSERT INTO shop (id, name, type, phone, sales, created_date)
+        VALUES (@max_id, #{name}, #{type}, #{phone}, #{sales}, now());
+    </insert>
+    
+
     
 <!--    <delete id="deleteUser" parameterType="int">-->
 <!--        DELETE FROM users WHERE id = #{id}-->
