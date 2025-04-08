@@ -8,20 +8,23 @@
 </head>
 <body>
 	<div class="container">
-	<h1 class="fs-5">お店詳細</h1>
-	<form th:object="${newShop}" th:action="@{/shop/insert}" method="post">
+	<h1 class="fs-5">新規作成</h1>
+	<form th:object="${shop}" th:action="@{/shop/insert}" method="post">
 
         <label for="name">名前:</label>
-        <input type="text" th:field="*{name}" /><br>
+        <input type="text" th:field="*{name}" />
+		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span><br>
 
-        <label for="email">種別:</label>
-        <input id="email" type="text" th:field="*{type}" /><br>
+        <label for="type">種別:</label>
+        <input id="type" type="text" th:field="*{type}" /><br>
 
         <label for="phone">電話番号:</label>
-        <input id="phone" type="text" th:field="*{phone}" /><br>
+        <input id="phone" type="text" th:field="*{phone}" />
+		<span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="text-danger"></span><br>
 
 		<label for="sales">売上:</label>
-		<input id="sales" type="text" th:field="*{sales}" /><br>
+		<input id="sales" type="text" th:field="*{sales}" />
+		<span th:if="${#fields.hasErrors('sales')}" th:errors="*{sales}" class="text-danger"></span><br>
 
 	<div class="container margin">
 		<button type="submit" class="btn btn-primary" value="保存">保存</button>

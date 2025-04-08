@@ -29,6 +29,10 @@
 		</div>
 		<div class="container margin">
 			<a th:href="@{/shop/{id}/edit(id=*{id})}" class="btn btn-primary">編集</a>
+			<form th:action="@{/shop/{id}/delete(id=*{id})}" method="post" style="display: inline;">
+			    <input type="hidden" name="_method" value="delete">
+			    <button type="submit" class="btn btn-primary">削除</button>
+			</form>
 			<a href="/shop/list" class="btn btn-primary">戻る</a>
 		</div>
 	</div>

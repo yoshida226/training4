@@ -29,8 +29,16 @@ public class ShopService {
 		shopMapper.updateShop(shop);
 	}
 	
+	public Long getMaxId() {
+		return shopMapper.getMaxId();
+	}
+	
 	public void insertShop(Shop shop) {
 		shopMapper.insertShop(shop);
+	}
+	
+	public void deleteShop(Long id) {
+		shopMapper.deleteShop(id);
 	}
 
 }

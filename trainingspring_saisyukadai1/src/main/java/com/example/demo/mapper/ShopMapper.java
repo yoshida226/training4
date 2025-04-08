@@ -15,5 +15,9 @@ public interface ShopMapper {
 	
 	void updateShop(Shop shop);
 	
+	Long getMaxId();
+	
 	void insertShop(Shop shop);
+	
+	void deleteShop(Long id);
 }
